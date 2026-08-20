@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Wintana LLC</title>
+<meta name="description" content="Get in touch with Wintana LLC — request information about a project, the cost-effectiveness calculator, or our apps.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .reveal-box { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+  .reveal-box input {
+    width: 90px; padding: 10px 12px; font: inherit; border: 1.5px solid var(--border);
+    border-radius: 9px; background: var(--surface);
+  }
+  .reveal-box input:focus { outline: 2px solid var(--red); outline-offset: -1px; }
+  .reveal-err { color: var(--red); font-size: 14px; margin-top: 8px; display: none; }
+  #emailShown { display: none; margin-top: 14px; }
+  form.inquiry { display: grid; gap: 16px; }
+  form.inquiry .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { form.inquiry .row { grid-template-columns: 1fr; } }
+  form.inquiry label { font-size: 13.5px; font-weight: 700; color: var(--ink-soft); display: block; margin-bottom: 6px; }
+  form.inquiry input, form.inquiry select, form.inquiry textarea {
+    width: 100%; padding: 11px 13px; font: inherit; color: var(--ink);
+    border: 1.5px solid var(--border); border-radius: 9px; background: var(--surface);
+  }
+  form.inquiry input:focus, form.inquiry select:focus, form.inquiry textarea:focus {
+    outline: 2px solid var(--red); outline-offset: -1px; border-color: transparent;
+  }
+  form.inquiry textarea { min-height: 130px; resize: vertical; }
+  .form-note { font-size: 13.5px; color: var(--ink-muted); }
+  .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img src="wintana-mark.png" alt="Wintana logo">
+      <span class="name">WINTANA<span>LLC</span></span>
+    </a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="cta active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h1>Tell us about your project.</h1>
+    <p class="lede">Questions about our apps, a scientific database you need built, or access to the cost-effectiveness calculator — we respond to every serious inquiry.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap contact-grid">
+
+    <div class="contact-card">
+      <h3>Email us directly</h3>
+      <p>To keep our inbox free of automated spam, please answer the quick question below to reveal our address.</p>
+      <div class="reveal-box" id="revealBox">
+        <span id="challengeQ" style="font-weight:700;"></span>
+        <input type="text" id="challengeA" inputmode="numeric" autocomplete="off" aria-label="Answer to the verification question">
+        <button class="btn primary" type="button" id="revealBtn" style="padding:10px 20px;">Show email</button>
+      </div>
+      <p class="reveal-err" id="revealErr">That doesn't look right — try again.</p>
+      <p id="emailShown"><a class="big" id="emailLink" href="#">&nbsp;</a></p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Request information on a project</h3>
+      <p style="margin-bottom:18px;">Fill in the form and press send — it will open a pre-addressed message in your own email program. Nothing is stored on this site.</p>
+      <form class="inquiry" id="inquiryForm" novalidate>
+        <div class="row">
+          <div><label for="fName">Your name</label><input type="text" id="fName" required autocomplete="name"></div>
+          <div><label for="fEmail">Your email</label><input type="email" id="fEmail" required autocomplete="email"></div>
+        </div>
+        <div class="row">
+          <div><label for="fOrg">Organization <span style="font-weight:400;">(optional)</span></label><input type="text" id="fOrg" autocomplete="organization"></div>
+          <div>
+            <label for="fType">I'm interested in</label>
+            <select id="fType">
+              <option>A custom scientific database</option>
+              <option>The cost-effectiveness calculator</option>
+              <option>Sureto</option>
+              <option>AirChat</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div><label for="fMsg">Tell us about it</label><textarea id="fMsg" required placeholder="A few sentences about your project, timeline, and goals."></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" id="fWebsite" tabindex="-1" autocomplete="off"></label></div>
+        <div class="btn-row" style="align-items:center;">
+          <button class="btn primary" type="submit">Send inquiry</button>
+          <span class="form-note">Opens your email app with the message ready to send.</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap cols">
+    <span class="fbrand"><img src="wintana-mark.png" alt=""> Wintana LLC</span>
+    <nav>
+      <a href="products.html">Products</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <span>© 2026 Wintana LLC. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* The address never appears in the page source: it is stored encoded
+     and only decoded in the visitor's browser after a human action. */
+  function addr() {
+    return atob("aWEuYW5hdG5pd0ByZWRudW9m").split("").reverse().join("");
+  }
+
+  /* --- Human check to reveal the email --- */
+  var a = 2 + Math.floor(Math.random() * 7);   // 2..8
+  var b = 2 + Math.floor(Math.random() * 7);
+  document.getElementById("challengeQ").textContent = "What is " + a + " + " + b + "?";
+  document.getElementById("revealBtn").addEventListener("click", function () {
+    var ans = parseInt(document.getElementById("challengeA").value, 10);
+    if (ans === a + b) {
+      var e = addr();
+      var link = document.getElementById("emailLink");
+      link.textContent = e;
+      link.setAttribute("href", "mailto:" + e);
+      document.getElementById("emailShown").style.display = "block";
+      document.getElementById("revealBox").style.display = "none";
+      document.getElementById("revealErr").style.display = "none";
+    } else {
+      document.getElementById("revealErr").style.display = "block";
+    }
+  });
+  document.getElementById("challengeA").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); document.getElementById("revealBtn").click(); }
+  });
+
+  /* --- Inquiry form: composes a mailto message client-side --- */
+  document.getElementById("inquiryForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (document.getElementById("fWebsite").value) return;  // honeypot: silently drop bots
+    var name = document.getElementById("fName").value.trim();
+    var email = document.getElementById("fEmail").value.trim();
+    var org = document.getElementById("fOrg").value.trim();
+    var type = document.getElementById("fType").value;
+    var msg = document.getElementById("fMsg").value.trim();
+    if (!name || !email || !msg) {
+      alert("Please fill in your name, email, and a short message.");
+      return;
+    }
+    var subject = "Project inquiry — " + type;
+    var body = "Name: " + name + "\nEmail: " + email +
+               (org ? "\nOrganization: " + org : "") +
+               "\nInterested in: " + type + "\n\n" + msg;
+    window.location.href = "mailto:" + addr() +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
+
+</body>
+</html>
